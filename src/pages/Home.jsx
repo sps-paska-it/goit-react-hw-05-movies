@@ -1,25 +1,20 @@
-import { fetchMovieas } from 'api/fetch-movies';
+import { fetchMovies } from 'api/fetch-movies';
 import { useEffect, useState } from 'react';
-
+import { MoviesList } from 'components/MoviesList/MoviesList';
 export const Home = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     // setIsLoading(true);
-    fetchMovieas().then(({ results }) => {
+    fetchMovies().then(({ results }) => {
       setMovies(results);
-      console.log(results);
     });
   }, []);
 
   return (
     <>
       <h1>Trending today</h1>
-      <ul>
-        {movies.map(({ id, title }) => {
-          return <li key={id}>{title}</li>;
-        })}
-      </ul>
+      <MoviesList movies={movies} />
     </>
   );
 };
