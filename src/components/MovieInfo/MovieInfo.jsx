@@ -1,6 +1,14 @@
 import { useLocation } from 'react-router-dom';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { BackLink } from 'components/GoBack/GoBack';
+import {
+  Box,
+  BoxInfo,
+  BoxInfoMovie,
+  Img,
+  LinkStyled,
+  List,
+} from './MovieInfo.styled';
 
 export const MovieInfo = ({
   poster_path,
@@ -9,10 +17,14 @@ export const MovieInfo = ({
   genres = [],
   vote_average,
   vote_count,
+  release_date = '',
 }) => {
-  const posterUrl = `https://image.tmdb.org/t/p/w500${poster_path}`;
+  const posterUrl = poster_path
+    ? `https://image.tmdb.org/t/p/w500${poster_path}`
+    : '';
   const stringGenres = genres.map(genre => genre.name).join(' ');
   const userScore = Math.round(vote_average * 10);
+  const date = release_date.split('-')[0];
 
   const location = useLocation();
   const backLinkHref = location?.state?.from || '/';
@@ -20,10 +32,12 @@ export const MovieInfo = ({
   return (
     <>
       <BackLink to={backLinkHref}>Go back</BackLink>
-      <div>
-        <img src={posterUrl} alt="" />
-        <div>
-          <h2>{title}</h2>
+      <Box>
+        <Img src={posterUrl} alt="" />
+        <BoxInfoMovie>
+          <h2>
+            {title} ({date})
+          </h2>
           <p>
             User Score: {userScore}% ({vote_count})
           </p>
@@ -31,20 +45,20 @@ export const MovieInfo = ({
           <p>{overview} </p>
           <b>Genres</b>
           <p>{stringGenres} </p>
-        </div>
-      </div>
-      <div>
-        <h2>Additional information</h2>
-        <ul>
+        </BoxInfoMovie>
+      </Box>
+      <BoxInfo>
+        <h3>Additional information</h3>
+        <List>
           <li>
-            <Link to="cast">Cast</Link>
+            <LinkStyled to="cast">Cast</LinkStyled>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <LinkStyled to="reviews">Reviews</LinkStyled>
           </li>
-        </ul>
+        </List>
         <Outlet />
-      </div>{' '}
+      </BoxInfo>{' '}
     </>
   );
 };

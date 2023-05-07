@@ -1,5 +1,11 @@
-import { Link } from 'react-router-dom';
+import { BsBoxArrowLeft } from 'react-icons/bs';
+import { StyledLink } from './GoBack.styled';
 
 export const BackLink = ({ to, children }) => {
-  return <Link to={to}>{children}</Link>;
+  return (
+    <StyledLink to={to}>
+      <BsBoxArrowLeft size="24" />
+      {children}
+    </StyledLink>
+  );
 };
