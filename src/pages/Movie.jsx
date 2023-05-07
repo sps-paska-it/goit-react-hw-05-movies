@@ -10,7 +10,6 @@ export const Movie = () => {
   useEffect(() => {
     fetchDetailsMovies(movieId).then(data => setMovie(data));
   }, [movieId]);
-  console.log(movie);
   return (
     <>
       {/* <GoBackBtn path={goBackLink}>Back to coutries</GoBackBtn> */}
