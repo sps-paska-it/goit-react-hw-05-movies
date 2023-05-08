@@ -1,5 +1,6 @@
-import { HeaderStyled, Link } from './Header.styled';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import { HeaderStyled, Link } from './Header.styled';
 
 export const Header = () => {
   return (
@@ -12,7 +13,9 @@ export const Header = () => {
           <Link to="/movies">Movies</Link>
         </nav>
       </HeaderStyled>
-      <Outlet />
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

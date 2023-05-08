@@ -7,7 +7,7 @@ import { SearchFormStyled, BtnSearch, Input } from './MovieSearch.styled';
 import { Loader } from 'components/Loader/Loader';
 import { Text } from 'components/Text/Text.styled';
 
-export const MoviesSearch = () => {
+const MoviesSearch = () => {
   const [queryMovies, setQuerytMovies] = useState('');
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -60,3 +60,5 @@ export const MoviesSearch = () => {
     </div>
   );
 };
+
+export default MoviesSearch;

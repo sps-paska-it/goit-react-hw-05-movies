@@ -5,7 +5,7 @@ import { List, Paragraf } from './Reviews.styled';
 import { Loader } from 'components/Loader/Loader';
 import { Text } from 'components/Text/Text.styled';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -41,3 +41,5 @@ export const Reviews = () => {
     </List>
   );
 };
+
+export default Reviews;

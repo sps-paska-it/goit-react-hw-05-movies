@@ -5,7 +5,7 @@ import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 import { Text } from 'components/Text/Text.styled';
 import { Loader } from 'components/Loader/Loader';
 
-export const Movie = () => {
+const Movie = () => {
   const [movie, setMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -28,3 +28,5 @@ export const Movie = () => {
     </>
   );
 };
+
+export default Movie;

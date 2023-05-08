@@ -5,7 +5,7 @@ import { Img, Item, List, Paragraf } from './Cast.styled';
 import { Loader } from 'components/Loader/Loader';
 import { Text } from 'components/Text/Text.styled';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -45,3 +45,5 @@ export const Cast = () => {
     </List>
   );
 };
+
+export default Cast;
