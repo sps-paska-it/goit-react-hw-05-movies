@@ -21,7 +21,7 @@ export const MovieInfo = ({
 }) => {
   const posterUrl = poster_path
     ? `https://image.tmdb.org/t/p/w500${poster_path}`
-    : '';
+    : 'https://via.placeholder.com/300x450';
   const stringGenres = genres.map(genre => genre.name).join(' ');
   const userScore = Math.round(vote_average * 10);
   const date = release_date.split('-')[0];
