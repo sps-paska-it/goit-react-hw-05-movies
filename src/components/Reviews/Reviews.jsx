@@ -23,22 +23,25 @@ const Reviews = () => {
       });
   }, [movieId]);
 
-  return isLoading ? (
-    <Loader loading={isLoading} />
-  ) : !reviews.length ? (
-    <p>We don't have any reviews for this movie.</p>
-  ) : (
-    <List>
-      {reviews.map(({ id, author, content }) => {
-        return (
-          <li key={id}>
-            <h4>Author: {author}</h4>
-            <Paragraf>{content}</Paragraf>
-          </li>
-        );
-      })}
+  return (
+    <>
+      <Loader loading={isLoading} />
+      {!reviews.length ? (
+        <p>We don't have any reviews for this movie.</p>
+      ) : (
+        <List>
+          {reviews.map(({ id, author, content }) => {
+            return (
+              <li key={id}>
+                <h4>Author: {author}</h4>
+                <Paragraf>{content}</Paragraf>
+              </li>
+            );
+          })}
+        </List>
+      )}
       {error && <Text textAlign="center">{error}</Text>}
-    </List>
+    </>
   );
 };
 

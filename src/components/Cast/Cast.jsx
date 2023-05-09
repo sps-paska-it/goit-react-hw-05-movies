@@ -23,26 +23,28 @@ const Cast = () => {
       });
   }, [movieId]);
   return (
-    <List>
-      {cast.map(({ id, profile_path, name, character }) => {
-        return (
-          <Item key={id}>
-            <Img
-              src={
-                profile_path
-                  ? `https://image.tmdb.org/t/p/w500${profile_path}`
-                  : ''
-              }
-              alt={name}
-            />
-            <Paragraf>{name}</Paragraf>
-            <Paragraf>Character: {character}</Paragraf>
-          </Item>
-        );
-      })}
+    <>
+      <List>
+        {cast.map(({ id, profile_path, name, character }) => {
+          return (
+            <Item key={id}>
+              <Img
+                src={
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                    : 'https://via.placeholder.com/148x222'
+                }
+                alt={name}
+              />
+              <Paragraf>{name}</Paragraf>
+              <Paragraf>Character: {character}</Paragraf>
+            </Item>
+          );
+        })}
+      </List>
       {<Loader loading={isLoading} />}
       {error && <Text textAlign="center">{error}</Text>}
-    </List>
+    </>
   );
 };
 
