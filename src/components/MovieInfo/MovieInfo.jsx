@@ -28,7 +28,6 @@ export const MovieInfo = ({
   const date = release_date.split('-')[0];
 
   const location = useLocation();
-  console.log(location);
   const backLinkHref = location?.state?.from || '/';
 
   return (
@@ -53,12 +52,12 @@ export const MovieInfo = ({
         <h3>Additional information</h3>
         <List>
           <li>
-            <LinkStyled to="cast" state={{ from: locationMovieListSearch }}>
+            <LinkStyled to="cast" state={{ from: backLinkHref }}>
               Cast
             </LinkStyled>
           </li>
           <li>
-            <LinkStyled to="reviews" state={{ from: locationMovieListSearch }}>
+            <LinkStyled to="reviews" state={{ from: backLinkHref }}>
               Reviews
             </LinkStyled>
           </li>

@@ -1,9 +1,8 @@
 import { useLocation } from 'react-router-dom';
 import { List, LinkStyled } from './MovieList.styled';
 
-export const MoviesList = ({ movies, locationMovieList }) => {
+export const MoviesList = ({ movies }) => {
   const location = useLocation();
-  locationMovieList(location);
   return (
     <List>
       {movies.map(({ id, title }) => {

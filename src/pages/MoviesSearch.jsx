@@ -6,7 +6,7 @@ import { Loader } from 'components/Loader/Loader';
 import { Text } from 'components/Text/Text.styled';
 import { FormSearch } from 'components/FormSearch/FormSearch';
 
-const MoviesSearch = ({ locationMovieList }) => {
+const MoviesSearch = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
@@ -29,11 +29,10 @@ const MoviesSearch = ({ locationMovieList }) => {
   const onSubmit = q => {
     setSearchParams({ q });
   };
-  const saveLocation = location => location;
   return (
     <>
-      <FormSearch propSubmit={onSubmit} id={saveLocation} />
-      <MoviesList movies={movies} locationMovieList={locationMovieList} />
+      <FormSearch propSubmit={onSubmit} />
+      <MoviesList movies={movies} />
       {<Loader loading={isLoading} />}
       {error && <Text textAlign="center">{error}</Text>}
     </>
