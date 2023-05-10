@@ -11,6 +11,7 @@ import {
 } from './MovieInfo.styled';
 
 export const MovieInfo = ({
+  locationMovieListSearch,
   poster_path,
   title,
   overview,
@@ -22,18 +23,19 @@ export const MovieInfo = ({
   const posterUrl = poster_path
     ? `https://image.tmdb.org/t/p/w500${poster_path}`
     : 'https://via.placeholder.com/300x450';
-  const stringGenres = genres.map(genre => genre.name).join(' ');
+  const stringGenres = genres.map(genre => genre.name).join(', ');
   const userScore = Math.round(vote_average * 10);
   const date = release_date.split('-')[0];
 
   const location = useLocation();
+  console.log(location);
   const backLinkHref = location?.state?.from || '/';
 
   return (
     <>
       <BackLink to={backLinkHref}>Go back</BackLink>
       <Box>
-        <Img src={posterUrl} alt="" />
+        <Img src={posterUrl} alt={title} />
         <BoxInfoMovie>
           <h2>
             {title} ({date})
@@ -51,10 +53,14 @@ export const MovieInfo = ({
         <h3>Additional information</h3>
         <List>
           <li>
-            <LinkStyled to="cast">Cast</LinkStyled>
+            <LinkStyled to="cast" state={{ from: locationMovieListSearch }}>
+              Cast
+            </LinkStyled>
           </li>
           <li>
-            <LinkStyled to="reviews">Reviews</LinkStyled>
+            <LinkStyled to="reviews" state={{ from: locationMovieListSearch }}>
+              Reviews
+            </LinkStyled>
           </li>
         </List>
         <Suspense>

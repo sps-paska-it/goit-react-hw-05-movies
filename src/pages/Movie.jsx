@@ -5,7 +5,7 @@ import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 import { Text } from 'components/Text/Text.styled';
 import { Loader } from 'components/Loader/Loader';
 
-const Movie = () => {
+const Movie = ({ locationMovieListSearch }) => {
   const [movie, setMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -23,7 +23,7 @@ const Movie = () => {
   return (
     <>
       {<Loader loading={isLoading} />}
-      <MovieInfo {...movie} />
+      <MovieInfo {...movie} locationMovieListSearch={locationMovieListSearch} />
       {error && <Text textAlign="center">{error}</Text>}
     </>
   );
