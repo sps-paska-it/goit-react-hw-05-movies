@@ -2,22 +2,25 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const HeaderStyled = styled.header`
+  padding: 5px 15px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 12px;
-  padding: 8px 0;
   margin-bottom: 16px;
-  border-bottom: 1px solid black;
+  background-color: #edfc68;
+  border-radius: 10px;
 
   > nav {
     display: flex;
+    margin-left: 15px;
+    column-gap: 10px;
   }
 `;
 
 export const Link = styled(NavLink)`
   padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 7px;
   text-decoration: none;
   color: black;
   font-weight: 500;
