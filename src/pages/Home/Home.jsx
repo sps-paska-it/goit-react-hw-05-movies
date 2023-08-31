@@ -1,8 +1,11 @@
 import { fetchMovies } from 'api/fetch-movies';
 import { useEffect, useState } from 'react';
-import { MoviesList } from 'components/MoviesList/MoviesList';
+import { TreydingMoviesList } from 'components/TreydingMoviesList/TreydingMoviesList';
 import { Text } from 'components/Text/Text.styled';
 import { Loader } from 'components/Loader/Loader';
+// import { Filter } from 'components/Filter/Filter';
+import { StyledMainDiv } from './Home.styled';
+import { TypeMoviesList } from 'components/TypeMoviesList/TypeMoviesList';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -20,13 +23,18 @@ const Home = () => {
         setIsLoading(false);
       });
   }, []);
-
+  console.log(movies);
   return (
     <>
-      <h1>Trending today</h1>
-      <MoviesList movies={movies} />
       {<Loader loading={isLoading} />}
-      {error && <Text textAlign="center">{error}</Text>}
+      <StyledMainDiv>
+        {/* <Filter /> */}
+        <div>
+          <TreydingMoviesList movies={movies} />
+          {error && <Text textAlign="center">{error}</Text>}
+          <TypeMoviesList />
+        </div>
+      </StyledMainDiv>
     </>
   );
 };

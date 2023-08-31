@@ -3,7 +3,7 @@ import { lazy } from 'react';
 
 import { Header } from 'components/Header/Header';
 
-const Home = lazy(() => import('../../pages/Home'));
+const Home = lazy(() => import('../../pages/Home/Home'));
 const MoviesSearch = lazy(() => import('../../pages/MoviesSearch'));
 const Movie = lazy(() => import('../../pages/Movie'));
 const Cast = lazy(() => import('../Cast/Cast'));

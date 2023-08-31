@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchSubmitMovies } from 'api/fetch-movies';
-import { MoviesList } from 'components/MoviesList/MoviesList';
+import { TreydingMoviesList } from 'components/TreydingMoviesList/TreydingMoviesList';
 import { Loader } from 'components/Loader/Loader';
 import { Text } from 'components/Text/Text.styled';
 import { FormSearch } from 'components/FormSearch/FormSearch';
@@ -31,9 +31,9 @@ const MoviesSearch = () => {
   };
   return (
     <>
-      <FormSearch propSubmit={onSubmit} />
-      <MoviesList movies={movies} />
       {<Loader loading={isLoading} />}
+      <FormSearch propSubmit={onSubmit} />
+      <TreydingMoviesList movies={movies} />
       {error && <Text textAlign="center">{error}</Text>}
     </>
   );
