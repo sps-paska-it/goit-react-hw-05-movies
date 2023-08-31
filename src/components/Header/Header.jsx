@@ -1,7 +1,8 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { HeaderStyled, Link } from './Header.styled';
-import { SvgLight, SvgLogIn, SvgLogo, SvgNight } from './SvgLogo';
+// import { SvgLight, SvgLogIn, SvgLogo, SvgNight } from './SvgLogo';
+import { SvgLogo } from './SvgLogo';
 
 export const Header = () => {
   return (
@@ -14,9 +15,9 @@ export const Header = () => {
           </Link>
           <Link to="/movies">Movies</Link>
         </nav>
-        <SvgLogIn />
+        {/* <SvgLogIn />
         <SvgLight />
-        <SvgNight />
+        <SvgNight /> */}
       </HeaderStyled>
       <Suspense>
         <Outlet />
