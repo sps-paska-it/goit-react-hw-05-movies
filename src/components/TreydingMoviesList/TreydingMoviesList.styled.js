@@ -11,12 +11,18 @@ export const List = styled.ul`
 
 export const StyledItem = styled.li`
   position: relative;
+  overflow: hidden;
 `;
 
 export const LinkStyled = styled(Link)`
   color: rgba(0, 0, 0, 0);
   :hover {
     color: orange;
+  }
+
+  :hover + .overlay,
+  :focus + .overlay {
+    transform: translateY(-100%);
   }
 `;
 
@@ -28,4 +34,17 @@ export const StyledTitle = styled.h3`
   position: absolute;
   bottom: 15px;
   left: 15px;
+`;
+
+export const StyledGradient = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  bottom: 0;
+  height: 30%;
+  width: 100%;
+  background-color: #161616;
 `;
