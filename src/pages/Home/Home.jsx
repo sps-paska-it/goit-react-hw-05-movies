@@ -16,14 +16,15 @@ const Home = () => {
     setIsLoading(true);
     fetchMovies()
       .then(({ results }) => {
-        setMovies(results);
+        if (typeof results === 'object') {
+          setMovies(results);
+        }
       })
       .catch(err => setError(err.message))
       .finally(() => {
         setIsLoading(false);
       });
   }, []);
-  console.log(movies);
   return (
     <>
       {<Loader loading={isLoading} />}
